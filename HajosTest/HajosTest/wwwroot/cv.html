@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <title>CV</title>
+    <link rel="stylesheet" href="cv.css">
 </head>
 <body>
     <h1>Önéletrajz</h1>
@@ -14,23 +15,28 @@
     </ul>
     <hr>
     <a id="szemelyes"><h3>Személyes adatok</h3></a>
-    <p>Név: <span>Csepei Gábor</span></p>
-    <p>Születési hely és idő: Budapest, 1998. május 35.</p>
-    <p>Telefonszám: 06-70-1234-567</p>
-    <p>E-mail-cím: cvemailcim@gmail.com</p>
+    <div id="felsorolas">
+        <p>Név: Csepei Gábor</p>
+        <p>Születési hely és idő: Budapest, 1998. május 35.</p>
+        <p>Telefonszám: 06-70-1234-567</p>
+        <p>E-mail-cím: cvemailcim@gmail.com</p>
+    </div>
     <hr>
     <a id="tanulm"><h3>Tanulmányok</h3></a>
-    <p>Az átlalános iskolai tanulmányaimat a helyi iskolában folytattam, matematika tagozaton.
-    Az itt eltöltött 8 év mindegyikét kitűnő eredménnyel fejeztem be, így az iskola különdíját is elnyertem.</p>
-    <p>Tanulmányaimat Debrecen egyik nagymultú gimnáziumában folytattam matematika-történelem szakon.
+    <p class="altalanos">
+        Az <span>átlalános iskolai</span> tanulmányaimat a helyi iskolában folytattam, matematika tagozaton.
+        Az itt eltöltött 8 év mindegyikét kitűnő eredménnyel fejeztem be, így az iskola különdíját is elnyertem.
+    </p>
+    <p class="kozepfoku">
+        Tanulmányaimat <span>Debrecen</span> egyik nagymultú <span>gimnáziumában</span> folytattam matematika-történelem szakon.
     Ezen 4 év alatt számatlana versenyen vettem részt, többek között matematika,
     német és magyar irodalom tantárygakból, többségükön jó helyezéssel végeztem.
     Mindezek, valamint a tanáraim kemény munkája hozzájárultak az érettségi vizsgám sikeres letételéhez.
-    Középiskolai tanulmányaim alatt sikeres német B2-es középfokú nyelvvizsgát szereztem.</p>
-    <p>Jelenleg a Budapesti Corvinus Egyetem másodéves gazdaságinformatikus szakos hallagtója vagyok.</p>
+    Középiskolai tanulmányaim alatt sikeres német B2-es középfokú nyelvvizsgát szereztem.
+    </p>
+    <p class="felsofoku">Jelenleg a <span>Budapesti Corvinus Egyetem</span> másodéves gazdaságinformatikus szakos hallagtója vagyok.</p>
     <hr>
     <a id="egyeb"><h3>Egyéb tudnivalók</h3></a>
-    <div>
         <ul>
             <h4><li>Kedvenc könyvek:</li></h4>
                     <ol>
@@ -45,7 +51,6 @@
                         <li>fekete</li>
                     </ul>
         </ul>
-    </div>
     <img scr="konyv1.jpg" alt="Kedvenc könyvek 3."/>
 </body>
 </html>
