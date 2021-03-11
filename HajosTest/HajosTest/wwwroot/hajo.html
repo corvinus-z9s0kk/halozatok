@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hajós teszt</title>
+    <style>
+        html, body, head{
+            height: 100%;
+            margin: 0px;
+            border: 0px;
+        }
+
+        div {
+           background-color: #4cfeac;
+        }
+
+        #külső {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #tartalom {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: row;
+        }
+
+        #válaszok {
+            flex-grow: 1;
+            flex-shrink: 1;
+        }
+
+        #kép {
+            flex-grow: 0;
+            flex-shrink: 0;
+        }
+
+        #navigáció {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .gomb {
+            padding: 20px;
+            width: 80px;
+        }
+
+        .kattintható:hover {
+            background-color: darkblue;
+            color: white;
+            cursor: pointer;
+        }
+
+        .jo {
+            background-color: green;
+        }
+
+        .rossz {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="külső">
+        <div id="kérdésszöveg">A kérdés szövege.</div>
+        <div id="tartalom">
+            <div id="válaszok">
+                <div id="válasz1" class="kattintható kerdes">1. válasz</div>
+                <div id="válasz2" class="kattintható kerdes jo">2. válasz</div>
+                <div id="válasz3" class="kattintható kerdes rossz">3. válasz</div>
+            </div>
+            <div id="kép"><img src="teszt-0050.jpg"></div>
+        </div>
+        <div id="navigáció">
+            <div id="előző" class="kattintható gomb">előző kérdés</div>
+            <div id="következő" class="kattintható gomb">következő kérdés</div>
+        </div>
+    </div>
+</body>
+</html>
