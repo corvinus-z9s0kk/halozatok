@@ -3,16 +3,17 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="hetedik.js"></script>
     <title>Hajós teszt</title>
     <style>
-        html, body, head{
+        html, body, head {
             height: 100%;
             margin: 0px;
             border: 0px;
         }
 
         div {
-           background-color: #4cfeac;
+            background-color: #4cfeac;
         }
 
         #külső {
@@ -43,6 +44,13 @@
             justify-content: space-between;
         }
 
+        .kerdes {
+            border: 1px solid blue;
+            background-color: azure;
+            text-align: center;
+            width: auto;
+        }
+
         .gomb {
             padding: 20px;
             width: 80px;
@@ -68,15 +76,15 @@
         <div id="kérdésszöveg">A kérdés szövege.</div>
         <div id="tartalom">
             <div id="válaszok">
-                <div id="válasz1" class="kattintható kerdes">1. válasz</div>
-                <div id="válasz2" class="kattintható kerdes jo">2. válasz</div>
-                <div id="válasz3" class="kattintható kerdes rossz">3. válasz</div>
+                <div id="válasz1" onclick="elsőJó()" class="kattintható kerdes">1. válasz</div>
+                <div id="válasz2" onclick="másodikJó()" class="kattintható kerdes">2. válasz</div>
+                <div id="válasz3" onclick="harmadikJó()" class="kattintható kerdes">3. válasz</div>
             </div>
-            <div id="kép"><img src="teszt-0050.jpg"></div>
+            <div id="kép" ><img id="kép1" src="https://szoft1.comeback.hu/hajo/teszt-0050.jpg"></div>
         </div>
         <div id="navigáció">
-            <div id="előző" class="kattintható gomb">előző kérdés</div>
-            <div id="következő" class="kattintható gomb">következő kérdés</div>
+            <div id="előző" onclick="előzőKérdés()" class="kattintható gomb">előző kérdés</div>
+            <div id="következő" onclick="következőKérdés()" class="kattintható gomb">következő kérdés</div>
         </div>
     </div>
 </body>
