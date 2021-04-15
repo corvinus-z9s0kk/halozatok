@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div id="eredmény"></div>
+
+    <script>
+        fetch('questions/all')
+            .then(response => response.json())
+            .then(data => console.log(data));
+
+        function kiiratas(lista) {
+            console.log(lista);
+            for (var i = 0; i < lista.length; i++) {
+                let újElem = document.createElement("div");
+                újElem.innerText = lista[i];
+                document.getElementById("eredmény").appendChild(újElem);
+            }
+        }
+    </script>
+</body>
+</html>
