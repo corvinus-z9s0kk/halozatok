@@ -25,12 +25,14 @@ function kérdésMegjelenítés(kérdés) {
     document.getElementById("válasz1").innerText = kérdés.answer1
     document.getElementById("válasz2").innerText = kérdés.answer2
     document.getElementById("válasz3").innerText = kérdés.answer3
-
-    if (kérdés.image == null) {
-        document.getElementById("kép1").style.display="none";
-    } else {
+    console.log(kérdés.image)
+    if (kérdés.image) {
         document.getElementById("kép1").src = "https://szoft1.comeback.hu/hajo/" + kérdés.image;
+        document.getElementById("kép").classList.remove("rejtett")
     }
+    else {
+        document.getElementById("kép").classList.add("rejtett")
+    }  
 
     helyes = kérdés.correctAnswer;
 }
