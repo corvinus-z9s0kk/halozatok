@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        body {
+            background-color: lightgreen;
+        }
+
+        header, #hozzáadásGomb {
+            color: white;
+            text-align: center;
+            background-color: green;
+            padding: 10px;
+            border-radius: 15px;
+        }
+
+        #tartalom {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .felvetel, .torles {
+            text-align: center;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        #lista {
+            padding: 10px
+        }
+
+        .formazas{
+            background-color: #86f639;
+            border: 3px solid green;
+            border-radius: 15px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="cim">Az Állatok Enciklopédiája</h1>
+    </header>
+    <div id="tartalom">
+        <form class="formazas">
+            <h3 class="felvetel">Az Enciklopédia célja</h3>
+            <p class="felvetel">
+                Itt a lehetőség, hogy Ön is segítsen nekünk létrehozni Az Állatok Enciklopédiájának legújabb online kiadását.<br>
+                Csak annyi a dolga, hogy a felvivendő állat fajnevét beírja a szövegdobozba,<br>
+                aztán az "Új állat felvétele" gombra kattintva el is mentette az állat nevét az adatbázisunkba.<br>
+                Gyűjstünk minél több állatot, hogy a miénk lehessen a legtöbb állatot felsoroltató Enciklopédia!
+            </p>
+            <p class="felvetel">
+                <label for="nev">Állat neve: </label>
+                <input id="nev" type="text" size="60" placeholder="Írja a be az állat nevét!" />
+            </p>
+            <p class="felvetel"><button id="hozzáadásGomb">Új állat felvétele</button></p>
+            <br>
+        </form>
+        <div id="lista" class="formazas">
+            <h3>Az Enciklopédiában szereplő állatok</h3>
+        </div>
+    </div>
+    <div>
+        <h3>Fel nem használt végpontok:</h3>
+        <ol>
+            <li>Végpont a tábla rekordjainak számának megjelenítésére</li>
+            <li>Végpont egy rekord lekérdezésére kulcs alapján</li>
+            <li>Végpont egy rekord törlésére kulcs alapján</li>
+        </ol>
+    </div>
+
+    <script>
+        document.getElementById("hozzáadásGomb").addEventListener("click", () => {
+
+            let data = {
+                animalName: document.getElementById("nev").value
+            }
+
+            fetch("api/animal",
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                }
+            ).then(x => {
+                if (x.ok) {
+                    alert("Siker");
+
+                }
+                else {
+                    alert("Kudarc");
+                }
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch("api/animal")
+                .then(result => {
+                    if (!result.ok) {
+                        console.error(`Hibás letöltés: ${result.status}`);
+                        return null;
+                    } else {
+                        return result.json();
+                    }
+                })
+                .then(data => {
+                    for (var i = 0; i < data.length; i++) {
+                        document.createElement("li");
+                        document.getElementById("lista").innerHTML += data[i].animalName += ",<br>";
+                    }
+                })
+        });
+    </script>
+</body>
+</html>
